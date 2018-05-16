@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+body,
+html {
+    height: 100%;
+}
+
+.login-aside-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}

@@ -9,8 +9,7 @@
         "build": "ng build",
         "lint": "ng lint",
         "build:client-and-server-bundles": "ng build --prod && ng run ng-universal-demo:server",
-        "build:prerender":
-            "npm run build:client-and-server-bundles && npm run webpack:server && npm run generate:prerender",
+        "build:prerender": "npm run build:client-and-server-bundles && npm run webpack:server && npm run generate:prerender",
         "build:ssr": "npm run build:client-and-server-bundles && npm run webpack:server",
         "generate:prerender": "cd dist && node prerender",
         "webpack:server": "webpack --config webpack.server.config.js --progress --colors",
@@ -34,9 +33,12 @@
         "@nguniversal/common": "^6.0.0",
         "@nguniversal/express-engine": "^6.0.0",
         "@nguniversal/module-map-ngfactory-loader": "^6.0.0",
+        "bootstrap": "^4.1.1",
         "core-js": "^2.4.1",
         "mongoose": "^5.1.1",
+        "ngx-bootstrap": "^2.0.5",
         "rxjs": "6.0.0",
+        "rxjs-compat": "^6.1.0",
         "webpack-cli": "^2.0.14",
         "zone.js": "^0.8.26"
     },

@@ -5,7 +5,7 @@
 			<aside class="col-sm-5 col-centered">
 				<div class="card">
 					<article class="card-body">
-						<a (click)="goToRegister()"
+						<a routerLink="../register"
 						   class="float-right btn btn-outline-primary">Sign up</a>
 						<h4 class="card-title mb-4 mt-1">Sign in</h4>
 						<form>
@@ -35,7 +35,8 @@
 							</div>
 							<!-- form-group// -->
 							<div class="form-group">
-								<button type="submit"
+								<button type="button"
+								        routerLink="../chat"
 								        class="btn btn-primary btn-block"> Login </button>
 							</div>
 							<!-- form-group// -->

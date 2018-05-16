@@ -1,0 +1,65 @@
+body {
+    background-color: #eee;
+}
+
+.block-panel {
+    padding: 15px;
+}
+.block-panel .block-panel-heading,
+.block-panel .checkbox {
+    margin-bottom: 10px;
+}
+.block-panel .checkbox {
+    font-weight: normal;
+}
+.block-panel .credentials {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.block-panel .credentials:focus {
+    z-index: 2;
+}
+
+.chat-body .message {
+    display: block;
+    font-size: 1.2em;
+}
+
+.message-input {
+    position: absolute;
+    bottom: 20px;
+    left: 15px;
+    width: 100%;
+}
+
+.container {
+    height: 100%;
+}
+
+.room-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.room-wrapper .second-w {
+    height: 500px;
+}
+
+.room-wrapper .card {
+    height: 100%;
+}
+
+.room-wrapper .block-panel {
+    height: 100%;
+}
+
+.block-panel .panel-body {
+    max-height: 320px;
+    overflow: auto;
+}

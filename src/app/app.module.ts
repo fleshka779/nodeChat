@@ -11,7 +11,8 @@ import { RegisterComponent } from './auth/components/register/register.component
     imports: [
         BrowserModule.withServerTransition({ appId: 'my-app' }),
         RouterModule.forRoot([
-            { path: '', component: LoginComponent, pathMatch: 'full' },
+            { path: '', redirectTo: 'login', pathMatch: 'full' },
+            { path: 'login', component: LoginComponent },
             { path: 'register', component: RegisterComponent },
             { path: 'chat', loadChildren: './chat/chat.module#ChatModule' }
         ]),

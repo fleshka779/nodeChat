@@ -14,7 +14,7 @@
         "generate:prerender": "cd dist && node prerender",
         "webpack:server": "webpack --config webpack.server.config.js --progress --colors",
         "serve:prerender": "cd dist/browser && http-server",
-        "serve:ssr": "node dist/server",
+        "serve:ssr": "node --inspect dist/server",
         "watch": "nodemon --watch 'server/**/*.ts' --ignore 'server/**/*.spec.ts' --exec 'ts-node' ./server.ts"
     },
     "pre-commit": [],
@@ -35,11 +35,15 @@
         "@nguniversal/module-map-ngfactory-loader": "^6.0.0",
         "bootstrap": "^4.1.1",
         "core-js": "^2.4.1",
+        "crypto": "^1.0.1",
+        "express-winston": "^2.5.1",
+        "jsonwebtoken": "^8.2.1",
         "mongoose": "^5.1.1",
         "ngx-bootstrap": "^2.0.5",
         "rxjs": "6.0.0",
         "rxjs-compat": "^6.1.0",
         "webpack-cli": "^2.0.14",
+        "winston": "^2.4.2",
         "zone.js": "^0.8.26"
     },
     "devDependencies": {

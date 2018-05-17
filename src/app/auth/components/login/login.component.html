@@ -9,6 +9,12 @@
 						   class="float-right btn btn-outline-primary">Sign up</a>
 						<h4 class="card-title mb-4 mt-1">Sign in</h4>
 						<form>
+							<div class="alert alert-danger"
+							     *ngIf="invalidAlert.show"
+							     role="alert"
+							     [innerText]="invalidAlert.text">
+							</div>
+
 							<div class="form-group">
 								<label>Your email</label>
 								<input name=""

@@ -5,11 +5,14 @@ import { ngExpressEngine } from '@nguniversal/express-engine';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 import * as bodyParser from 'body-parser';
 import * as express from 'express';
+import * as expressWinston from 'express-winston';
 import * as mongoose from 'mongoose';
 import { join } from 'path';
 import 'reflect-metadata';
 import 'zone.js/dist/zone-node';
 import { routes } from './server/controllers/index';
+import { config } from './server/helpers/config';
+import { ErrorHandler } from './server/helpers/errorHandlers';
 
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
@@ -34,8 +37,14 @@ app.engine(
 
 app.set('view engine', 'html');
 app.set('views', join(DIST_FOLDER, 'browser'));
+app.use(ErrorHandler.logErrors);
+app.use(ErrorHandler.clientErrorHandler);
+app.use(ErrorHandler.errorHandler);
 
 app.use(bodyParser.json());
+
+// Winston Logger
+app.use(expressWinston.logger(config.winston));
 
 // DB
 mongoose.connect('mongodb://localhost:27017');

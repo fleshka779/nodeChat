@@ -1,1 +1,1 @@
-export const ROUTES = ['/', '/chat', '/register'];
+export const ROUTES = ['/', '/chat', '/register', '/login', '/rooms'];

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
     selector: 'app-login-component',
@@ -7,11 +9,56 @@ import { ActivatedRoute, Router } from '@angular/router';
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-    constructor(private router: Router, private route: ActivatedRoute) {}
+    form: FormGroup;
+    invalidAlert: any = {
+        show: false,
+        text: 'Default'
+    };
 
-    ngOnInit(): void {}
+    constructor(
+        private authService: AuthService,
+        private fb: FormBuilder,
+        private router: Router,
+        private route: ActivatedRoute
+    ) {}
 
-    goToRegister(): void {
-        this.router.navigate(['./register'], { relativeTo: this.route });
+    ngOnInit(): void {
+        this.createForm();
+    }
+
+    createForm(): void {
+        this.form = this.fb.group(
+            {
+                email: ['', Validators.compose([Validators.required, Validators.email])],
+                password: ['', Validators.required]
+            },
+            { updateOn: 'submit' }
+        );
+    }
+
+    submit() {
+        if (this.form.valid) {
+            this.invalidAlert.show = false;
+
+            this.authService.register(this.form.value).then(
+                x => {
+                    console.log('Success', x);
+                    this.router.navigate(['../chat'], { relativeTo: this.route });
+                },
+                err => {
+                    console.log('Error', err);
+                    this.invalidAlert = {
+                        show: true,
+                        text: 'test'
+                    };
+                }
+            );
+            this.form.reset();
+        } else {
+            this.invalidAlert = {
+                show: true,
+                text: 'Please fill out the form'
+            };
+        }
     }
 }

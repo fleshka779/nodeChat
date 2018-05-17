@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
         if (this.form.valid) {
             this.invalidAlert.show = false;
 
-            this.authService.register(this.form.value).then(
+            this.authService.login(this.form.value).then(
                 x => {
                     console.log('Success', x);
                     this.router.navigate(['../chat'], { relativeTo: this.route });
@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
                     console.log('Error', err);
                     this.invalidAlert = {
                         show: true,
-                        text: 'test'
+                        text: 'Request Error. Please try again.'
                     };
                 }
             );

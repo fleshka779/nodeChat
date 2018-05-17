@@ -8,7 +8,8 @@
 						<a routerLink="../register"
 						   class="float-right btn btn-outline-primary">Sign up</a>
 						<h4 class="card-title mb-4 mt-1">Sign in</h4>
-						<form>
+						<form [formGroup]="form"
+						      (ngSubmit)="submit()">
 							<div class="alert alert-danger"
 							     *ngIf="invalidAlert.show"
 							     role="alert"
@@ -17,17 +18,18 @@
 
 							<div class="form-group">
 								<label>Your email</label>
-								<input name=""
+								<input name="email"
 								       class="form-control"
+								       formControlName="email"
 								       placeholder="Email"
 								       type="email">
 							</div>
 							<!-- form-group// -->
 							<div class="form-group">
-								<!-- <a class="float-right"
-										   href="#">Forgot?</a> -->
 								<label>Your password</label>
 								<input class="form-control"
+								       name="password"
+								       formControlName="password"
 								       placeholder="******"
 								       type="password">
 							</div>
@@ -41,8 +43,7 @@
 							</div>
 							<!-- form-group// -->
 							<div class="form-group">
-								<button type="button"
-								        routerLink="../chat"
+								<button type="submit"
 								        class="btn btn-primary btn-block"> Login </button>
 							</div>
 							<!-- form-group// -->

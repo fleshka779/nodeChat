@@ -8,10 +8,7 @@ export class AuthService {
     constructor(private http: HttpClient) {}
 
     login(data: ILoginData): Promise<any> {
-        return this.http
-            .post('api/auth/login', data)
-            .map((response: any) => response)
-            .toPromise();
+        return this.http.post('api/auth/login', data).toPromise();
     }
 
     register(data: IRegisterData): Promise<any> {

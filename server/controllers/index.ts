@@ -9,7 +9,7 @@ const routes = express.Router();
 routes.use('/auth', authRouter);
 
 // TODO: route middleware to verify a token
-routes.use(function(req, res, next) {
+routes.use(function(req: any, res, next) {
     // check header or url parameters or post parameters for token
     const token = req.body.token || req.query.token || req.headers['x-access-token'];
 

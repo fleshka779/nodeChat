@@ -11,6 +11,7 @@ import { join } from 'path';
 import 'reflect-metadata';
 import 'zone.js/dist/zone-node';
 import { routes } from './server/controllers/index';
+import { initSocket } from './server/controllers/socket/socket';
 import { config } from './server/helpers/config';
 import { ErrorHandler } from './server/helpers/errorHandlers';
 
@@ -19,6 +20,15 @@ enableProdMode();
 
 // Express server
 const app = express();
+
+// const server = require('http').createServer();
+// const io = require('socket.io')(server);
+// console.log(io);
+
+// server.listen(3000);
+
+// Socket IO
+const chat = initSocket(app);
 
 const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist');

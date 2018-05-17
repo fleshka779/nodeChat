@@ -44,7 +44,7 @@ authRouter.post('/register', function(req, res, next) {
  */
 authRouter.post('/login', function(req, res, next) {
     if (!req.body.email || !req.body.password) {
-        return next('Invalid params.', res);
+        return next('Invalid params.');
     }
 
     User.findOne(
@@ -55,11 +55,11 @@ authRouter.post('/login', function(req, res, next) {
             if (err) return next(err);
 
             if (!user) {
-                return next('Authentication failed. User not found.', res);
+                return next('Authentication failed. User not found.');
             } else if (user) {
                 // check if password matches
                 if (!user.validPassword(req.body.password)) {
-                    return next('Authentication failed. Wrong password.', res);
+                    return next('Authentication failed. Wrong password.');
                 } else {
                     try {
                         const payload = {
